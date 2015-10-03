@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Assignment1</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_reaction_timer">ReactionTimer</string>
+    <string name="title_activity_number_of_buzzer">NumberOfBuzzerActivity</string>
+    <string name="title_activity_record">RecordActivity</string>
+    <string name="title_activity_two_buzzer">TwoBuzzerActivity</string>
+    <string name="title_activity_three_buzzer">ThreeBuzzerActivity</string>
+    <string name="title_activity_four_buzzer">FourBuzzerActivity</string>
+    <string name="title_activity_reaction_timer_record">ReactionTimerRecordActivity</string>
+    <string name="title_activity_two_buzzer_record">TwoBuzzerRecordActivity</string>
+    <string name="title_activity_three_buzzer_record">ThreeBuzzerRecordActivity</string>
+    <string name="title_activity_four_buzzer_record">FourBuzzerRecordActivity</string>
+    <string name="title_activity_every">EveryActivity</string>
+    <string name="title_activity_statement">StatementActivity</string>
+</resources>
