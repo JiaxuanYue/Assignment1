@@ -18,6 +18,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Handler;
 
+
+//activity of reaction timer
+
+
 public class ReactionTimerActivity extends AppCompatActivity {
     private Button btn;
     @Override
@@ -33,12 +37,12 @@ public class ReactionTimerActivity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Delay();
+                Delaytime();
             }
         });
     }
 
-    private void Delay() {
+    private void Delaytime() {
         if (btn == null) {
             int A = 10;
             int B = 2000;
@@ -59,6 +63,7 @@ public class ReactionTimerActivity extends AppCompatActivity {
                     long endTime = System.nanoTime();
                     long reactionTime = endTime - startTime;
                     float time= (float)(reactionTime/1000000000.0);
+                    Datasave.sharedDataCenter().ReactionTime.add((double) (reactionTime/1000000000.0));
                     AlertDialog.Builder timer = new AlertDialog.Builder(ReactionTimerActivity.this);
                     timer.setTitle("\n" + "HINT");
                     timer.setMessage(String.format("%5f", time));
@@ -95,6 +100,7 @@ public class ReactionTimerActivity extends AppCompatActivity {
                 long endTime = System.nanoTime();
                 long reactionTime = endTime - startTime;
                 float time= (float)(reactionTime/1000000000.0);
+                Datasave.sharedDataCenter().ReactionTime.add((double) (reactionTime/1000000000.0));
                 AlertDialog.Builder timer = new AlertDialog.Builder(ReactionTimerActivity.this);
                 timer.setTitle("\n" + "HINT");
                 timer.setMessage(String.format("%5f", time));
@@ -114,23 +120,13 @@ public class ReactionTimerActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_reaction_timer, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 }

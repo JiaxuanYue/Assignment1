@@ -20,9 +20,10 @@
         android:layout_height="wrap_content"
         android:text="reaction timer"
         android:id="@+id/reactionTimerButton"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/chosenStudentTextView"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/recordButton" />
+        android:layout_marginTop="44dp"
+        android:layout_alignEnd="@+id/chosenStudentTextView" />
 
     <Button
         android:layout_width="wrap_content"
@@ -30,18 +31,17 @@
         android:text="gameshow buzzer"
         android:id="@+id/gameshowBuzzerButton"
         android:singleLine="true"
-        android:layout_below="@+id/chosenStudentTextView"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="52dp"
-        android:layout_alignParentStart="true" />
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/recordButton" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="record"
         android:id="@+id/recordButton"
+        android:layout_marginBottom="80dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="67dp"
+        android:layout_alignEnd="@+id/reactionTimerButton"
         android:layout_alignParentStart="true" />
 </RelativeLayout>

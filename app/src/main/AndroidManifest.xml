@@ -41,10 +41,6 @@
             android:label="@string/title_activity_four_buzzer" >
         </activity>
         <activity
-            android:name=".ReactionTimerRecordActivity"
-            android:label="@string/title_activity_reaction_timer_record" >
-        </activity>
-        <activity
             android:name=".TwoBuzzerRecordActivity"
             android:label="@string/title_activity_two_buzzer_record" >
         </activity>
@@ -57,12 +53,20 @@
             android:label="@string/title_activity_four_buzzer_record" >
         </activity>
         <activity
-            android:name=".EveryActivity"
-            android:label="@string/title_activity_every" >
+            android:name=".ReactionRecordActivity"
+            android:label="@string/title_activity_statement" >
         </activity>
         <activity
-            android:name=".StatementActivity"
-            android:label="@string/title_activity_statement" >
+            android:name=".Data"
+            android:label="@string/title_activity_data" >
+        </activity>
+        <activity
+            android:name=".Datasave"
+            android:label="@string/title_activity_datasave" >
+        </activity>
+        <activity
+            android:name=".do_statement"
+            android:label="@string/title_activity_do_statement" >
         </activity>
     </application>
 

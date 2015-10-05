@@ -8,6 +8,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+
+//activity of two buzzer activity
+
+
 public class TwoBuzzerActivity extends AppCompatActivity {
 
     @Override
@@ -28,6 +32,9 @@ public class TwoBuzzerActivity extends AppCompatActivity {
                 builder.setMessage("Player 1 WIN");
                 builder.setPositiveButton("OK", null);
                 builder.create().show();
+                long Player1 =1;
+                Double player1 = Double.valueOf(Player1);
+                Datasave.sharedDataCenter().Twoplayers1.add(player1);
 
             }
 
@@ -46,6 +53,9 @@ public class TwoBuzzerActivity extends AppCompatActivity {
                 builder.setMessage("Player 2 WIN");
                 builder.setPositiveButton("OK",null);
                 builder.create().show();
+                long Player2 =1;
+                Double player2 = Double.valueOf(Player2);
+                Datasave.sharedDataCenter().Twoplayers2.add(player2);
 
             }
 
@@ -54,23 +64,13 @@ public class TwoBuzzerActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_two_buzzer, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 }

@@ -8,6 +8,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+
+//activity of three buzzer activity
+
 public class ThreeBuzzerActivity extends AppCompatActivity {
 
     @Override
@@ -28,6 +31,9 @@ public class ThreeBuzzerActivity extends AppCompatActivity {
                 builder.setMessage("Player 1 WIN");
                 builder.setPositiveButton("OK", null);
                 builder.create().show();
+                long Player1 =1;
+                Double player1 = Double.valueOf(Player1);
+                Datasave.sharedDataCenter().Threeplayers1.add(player1);
 
             }
 
@@ -46,6 +52,9 @@ public class ThreeBuzzerActivity extends AppCompatActivity {
                 builder.setMessage("Player 2 WIN");
                 builder.setPositiveButton("OK", null);
                 builder.create().show();
+                long Player2 =1;
+                Double player2 = Double.valueOf(Player2);
+                Datasave.sharedDataCenter().Threeplayers2.add(player2);
 
             }
 
@@ -64,6 +73,9 @@ public class ThreeBuzzerActivity extends AppCompatActivity {
                 builder.setMessage("Player 3 WIN");
                 builder.setPositiveButton("OK", null);
                 builder.create().show();
+                long Player3 =1;
+                Double player3 = Double.valueOf(Player3);
+                Datasave.sharedDataCenter().Threeplayers3.add(player3);
 
             }
 
@@ -72,23 +84,13 @@ public class ThreeBuzzerActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_three_buzzer, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 }

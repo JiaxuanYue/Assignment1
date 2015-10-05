@@ -1,8 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.mycompany.assignment1.FourBuzzerRecordActivity">
-
+    tools:context="com.mycompany.assignment1.ReactionRecordActivity">
     <item
         android:id="@+id/email"
         android:title="email"
@@ -12,4 +11,5 @@
         android:id="@+id/clear"
         android:title="clear"
         />
+
 </menu>

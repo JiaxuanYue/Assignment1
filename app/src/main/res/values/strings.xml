@@ -15,4 +15,7 @@
     <string name="title_activity_four_buzzer_record">FourBuzzerRecordActivity</string>
     <string name="title_activity_every">EveryActivity</string>
     <string name="title_activity_statement">StatementActivity</string>
+    <string name="title_activity_data">Data</string>
+    <string name="title_activity_datasave">Datasave</string>
+    <string name="title_activity_do_statement">do_statement</string>
 </resources>
