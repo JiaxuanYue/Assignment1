@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Datasave.sharedDatasave().loadFromFile(this);
+
         Button btn1 =(Button)findViewById(R.id.reactionTimerButton);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,18 +46,10 @@ public class MainActivity extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,RecordActivity.class);
+                Intent intent = new Intent(MainActivity.this, RecordActivity.class);
                 startActivity(intent);
             }
         });
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-
 
 }

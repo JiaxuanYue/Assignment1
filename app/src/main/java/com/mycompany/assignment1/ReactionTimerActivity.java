@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Looper;
+import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -63,8 +64,9 @@ public class ReactionTimerActivity extends AppCompatActivity {
                     long endTime = System.nanoTime();
                     long reactionTime = endTime - startTime;
                     float time= (float)(reactionTime/1000000000.0);
-                    Datasave.sharedDataCenter().ReactionTime.add((double) (reactionTime/1000000000.0));
+                    Datasave.sharedDatasave().ReactionTime.add((double) (reactionTime/1000000000.0));
                     AlertDialog.Builder timer = new AlertDialog.Builder(ReactionTimerActivity.this);
+                    Datasave.sharedDatasave().saveInFile(v.getContext());
                     timer.setTitle("\n" + "HINT");
                     timer.setMessage(String.format("%5f", time));
                     timer.setPositiveButton("RETRY", new DialogInterface.OnClickListener() {
@@ -100,7 +102,8 @@ public class ReactionTimerActivity extends AppCompatActivity {
                 long endTime = System.nanoTime();
                 long reactionTime = endTime - startTime;
                 float time= (float)(reactionTime/1000000000.0);
-                Datasave.sharedDataCenter().ReactionTime.add((double) (reactionTime/1000000000.0));
+                Datasave.sharedDatasave().ReactionTime.add((double) (reactionTime/1000000000.0));
+                Datasave.sharedDatasave().saveInFile(v.getContext());
                 AlertDialog.Builder timer = new AlertDialog.Builder(ReactionTimerActivity.this);
                 timer.setTitle("\n" + "HINT");
                 timer.setMessage(String.format("%5f", time));
@@ -118,15 +121,4 @@ public class ReactionTimerActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_reaction_timer, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        return super.onOptionsItemSelected(item);
-    }
 }

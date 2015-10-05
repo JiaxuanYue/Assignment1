@@ -34,7 +34,8 @@ public class FourBuzzerActivity extends AppCompatActivity {
                 builder.create().show();
                 long Player1 =1;
                 Double player1 = Double.valueOf(Player1);
-                Datasave.sharedDataCenter().Fourplayers1.add(player1);
+                Datasave.sharedDatasave().Fourplayers1.add(player1);
+                Datasave.sharedDatasave().saveInFile(v.getContext());
 
             }
 
@@ -55,7 +56,8 @@ public class FourBuzzerActivity extends AppCompatActivity {
                 builder.create().show();
                 long Player2 =1;
                 Double player2 = Double.valueOf(Player2);
-                Datasave.sharedDataCenter().Fourplayers2.add(player2);
+                Datasave.sharedDatasave().Fourplayers2.add(player2);
+                Datasave.sharedDatasave().saveInFile(v.getContext());
 
             }
 
@@ -76,7 +78,8 @@ public class FourBuzzerActivity extends AppCompatActivity {
                 builder.create().show();
                 long Player3 =1;
                 Double player3 = Double.valueOf(Player3);
-                Datasave.sharedDataCenter().Fourplayers3.add(player3);
+                Datasave.sharedDatasave().Fourplayers3.add(player3);
+                Datasave.sharedDatasave().saveInFile(v.getContext());
 
             }
 
@@ -97,22 +100,12 @@ public class FourBuzzerActivity extends AppCompatActivity {
                 builder.create().show();
                 long Player4 =1;
                 Double player4 = Double.valueOf(Player4);
-                Datasave.sharedDataCenter().Fourplayers4.add(player4);
+                Datasave.sharedDatasave().Fourplayers4.add(player4);
+                Datasave.sharedDatasave().saveInFile(v.getContext());
 
             }
 
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_four_buzzer, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        return super.onOptionsItemSelected(item);
-    }
 }

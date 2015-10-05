@@ -34,7 +34,8 @@ public class TwoBuzzerActivity extends AppCompatActivity {
                 builder.create().show();
                 long Player1 =1;
                 Double player1 = Double.valueOf(Player1);
-                Datasave.sharedDataCenter().Twoplayers1.add(player1);
+                Datasave.sharedDatasave().Twoplayers1.add(player1);
+                Datasave.sharedDatasave().saveInFile(v.getContext());
 
             }
 
@@ -55,22 +56,12 @@ public class TwoBuzzerActivity extends AppCompatActivity {
                 builder.create().show();
                 long Player2 =1;
                 Double player2 = Double.valueOf(Player2);
-                Datasave.sharedDataCenter().Twoplayers2.add(player2);
+                Datasave.sharedDatasave().Twoplayers2.add(player2);
+                Datasave.sharedDatasave().saveInFile(v.getContext());
 
             }
 
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_two_buzzer, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        return super.onOptionsItemSelected(item);
-    }
 }

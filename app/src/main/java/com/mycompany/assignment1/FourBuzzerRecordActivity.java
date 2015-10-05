@@ -1,5 +1,6 @@
 package com.mycompany.assignment1;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -20,7 +22,7 @@ public class FourBuzzerRecordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.four_buzzer_record);
-        Datasave data = Datasave.sharedDataCenter();
+        Datasave data = Datasave.sharedDatasave();
         TextView Player1 = (TextView) this.findViewById(R.id.fourplayer1);
         TextView Player2 = (TextView) this.findViewById(R.id.fourplayer2);
         TextView Player3 = (TextView) this.findViewById(R.id.fourplayer3);
@@ -80,7 +82,7 @@ public class FourBuzzerRecordActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.clear) {
-            Datasave.sharedDataCenter().reset(this);
+            Datasave.sharedDatasave().reset(this);
             Intent intent = new Intent(this, FourBuzzerRecordActivity.class);
             this.startActivity(intent);
             this.finish();
@@ -97,10 +99,14 @@ public class FourBuzzerRecordActivity extends AppCompatActivity {
             //Following function based on http://stackoverflow.com/a/2197841/393009
             Intent text = new Intent(Intent.ACTION_SENDTO);
             text.setType("message/rfc822");
-            text.putExtra(Intent.EXTRA_SUBJECT, "Reaction Statistics");
+            text.putExtra(Intent.EXTRA_SUBJECT, "4 buzzers");
             text.putExtra(Intent.EXTRA_TEXT, Statistics);
             text.setData(Uri.parse("mailto:jiaxuan2@ualberta.ca"));
-
+            try {
+                this.startActivity(Intent.createChooser(text, "Send mail..."));
+            } catch (ActivityNotFoundException e) {
+                Toast.makeText(this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+            }
 
         }
 

@@ -1,5 +1,6 @@
 package com.mycompany.assignment1;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,7 +23,7 @@ public class ReactionRecordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reaction_record);
-        Datasave data = Datasave.sharedDataCenter();
+        Datasave data = Datasave.sharedDatasave();
 
         TextView last10Min = (TextView) this.findViewById(R.id.MinimumLast10);
         TextView last100Min = (TextView) this.findViewById(R.id.MinimumLast100);
@@ -141,7 +143,7 @@ public class ReactionRecordActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.clear) {
-            Datasave.sharedDataCenter().reset(this);
+            Datasave.sharedDatasave().reset(this);
             Intent intent = new Intent(this, ReactionRecordActivity.class);
             this.startActivity(intent);
             this.finish();
@@ -178,7 +180,11 @@ public class ReactionRecordActivity extends AppCompatActivity {
             text.putExtra(Intent.EXTRA_SUBJECT, "Reaction Statistics");
             text.putExtra(Intent.EXTRA_TEXT, Statistics);
             text.setData(Uri.parse("mailto:jiaxuan2@ualberta.ca"));
-
+            try {
+                this.startActivity(Intent.createChooser(text, "Send mail..."));
+            } catch (ActivityNotFoundException e) {
+                Toast.makeText(this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+            }
 
         }
 
